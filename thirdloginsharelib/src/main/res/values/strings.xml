@@ -1,0 +1,12 @@
+<resources>
+    <!--登录-->
+    <string name="login_qq_login">QQ登录</string>
+    <string name="login_wx_login">微信登录</string>
+    <string name="login_wb_login">微博登录</string>
+    <!--分享-->
+    <string name="share_qq">QQ</string>
+    <string name="share_qq_space">QQ空间</string>
+    <string name="share_wx">微信</string>
+    <string name="share_wx_friends">朋友圈</string>
+    <string name="share_wb">微博</string>
+</resources>

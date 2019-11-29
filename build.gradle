@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        /**gradle*/
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        /**github*/
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    /**SDK And Tools（SDK和工具）*/
+    //用于编译的SDK版本
+    compileSdkVersion = 28
+    //用于Gradle编译项目的工具版本
+    buildToolsVersion = "28.0.2"
+    //应用ID
+    applicationId = "com.aoji.smartconsult"
+    //最低支持Android版本
+    minSdkVersion = 15
+    //目标版本
+    targetSdkVersion = 28
+    //应用程序版本号
+    versionCode = 1
+    //应用程序版本名称
+    versionName = "1.0.0"
+    /**Dependencies（依赖关系）*/
+    supportVersion = "28.0.0"
+}

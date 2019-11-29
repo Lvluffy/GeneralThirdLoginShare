@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--QQ-->
+        <RelativeLayout
+            android:id="@+id/layout_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_bg_radius_false_selector_white"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_qq"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/qq_" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_qq"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/share_qq"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <!--QQ空间-->
+        <RelativeLayout
+            android:id="@+id/layout_qqkj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_bg_radius_false_selector_white"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_qqkj"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/qqkj" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_qqkj"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/share_qq_space"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <!--微博-->
+        <RelativeLayout
+            android:id="@+id/layout_wb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_bg_radius_false_selector_white"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_wb"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/wb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_wb"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/share_wb"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <!--朋友圈-->
+        <RelativeLayout
+            android:id="@+id/layout_pyq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_bg_radius_false_selector_white"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_pyq"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/pyq" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_pyq"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/share_wx_friends"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <!--微信-->
+        <RelativeLayout
+            android:id="@+id/layout_wx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_bg_radius_false_selector_white"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ic_wx"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/wx" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ic_wx"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="@string/share_wx"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</HorizontalScrollView>
