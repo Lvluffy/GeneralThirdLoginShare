@@ -21,7 +21,7 @@ public class ShareCallBack {
      * @return
      */
     public static UMShareListener getUMShareListener(final Context mContext) {
-        UMShareListener mUMShareListener = new UMShareListener() {
+        return new UMShareListener() {
             @Override
             public void onStart(SHARE_MEDIA share_media) {
 
@@ -42,7 +42,6 @@ public class ShareCallBack {
                 Toast.makeText(mContext, "分享取消", Toast.LENGTH_SHORT).show();
             }
         };
-        return mUMShareListener;
     }
 
     /**
@@ -53,7 +52,7 @@ public class ShareCallBack {
      * @return
      */
     public static UMShareListener getUMShareListener(final Context mContext, final IShareCallBack mIShareCallBack) {
-        UMShareListener mUMShareListener = new UMShareListener() {
+        return new UMShareListener() {
             @Override
             public void onStart(SHARE_MEDIA share_media) {
 
@@ -83,6 +82,5 @@ public class ShareCallBack {
                 }
             }
         };
-        return mUMShareListener;
     }
 }
