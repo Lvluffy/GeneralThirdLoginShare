@@ -5,24 +5,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.luffy.generalthirdloginshare.R;
-import com.luffy.generalthirdloginshare.utils.ClipboardUtils;
 import com.luffy.thirdloginsharelib.login.LoginInvoker;
 import com.luffy.thirdloginsharelib.model.QQLogin;
 import com.luffy.thirdloginsharelib.model.SinaLogin;
 import com.luffy.thirdloginsharelib.model.WechatLogin;
 import com.luffy.thirdloginsharelib.share.ShareInvoker;
 import com.luffy.thirdloginsharelib.share.shareType.ShareLink;
-import com.luffy.thirdloginsharelib.share.shareUI.ShareDefaultDialog;
+import com.luffy.thirdloginsharelib.share.shareUI.ShareCustomDialog;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMWeb;
-import com.umeng.socialize.shareboard.SnsPlatform;
-import com.umeng.socialize.utils.ShareBoardlistener;
 
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -64,28 +60,27 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_share:
-                ShareDefaultDialog.showDialog(MainActivity.this, new ShareBoardlistener() {
-                    @Override
-                    public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
-                        if (snsPlatform.mShowWord.equals("复制链接")) {
-                            ClipboardUtils.getInstance().clipUri(MainActivity.this, requestUrl);
-                            Toast.makeText(MainActivity.this, "已复制链接到剪贴板", Toast.LENGTH_SHORT).show();
-                        } else {
-                            /*获取连接*/
-                            UMWeb mUMWeb = ShareLink.getInstance().getUMWeb(
-                                    MainActivity.this,
-                                    requestUrl,
-                                    title,
-                                    R.mipmap.ic_launcher,
-                                    "你的目光所及，就是你的人生境界。");
-                            ShareInvoker.getInstance().share(MainActivity.this, share_media, mUMWeb);
-                            /*分享图片*/
-//                            String url = "http://i1.sinaimg.cn/ent/d/2008-06-04/U105P28T3D2048907F326DT20080604225106.jpg";
-//                            UMImage mUMImage = ShareImage.getInstance().getUMImage(MainActivity.this, url);
-//                            ShareInvoker.getInstance().share(MainActivity.this, share_media, mUMImage);
-                        }
-                    }
-                });
+                new ShareCustomDialog(MainActivity.this)
+                        .setSharePlatformCallBack(new ShareCustomDialog.SharePlatformCallBack() {
+                            @Override
+                            public void sendPlatform(SHARE_MEDIA platform) {
+                                /*获取连接*/
+//                                UMWeb mUMWeb = ShareLink.getInstance().getUMWeb(
+//                                        MainActivity.this,
+//                                        requestUrl,
+//                                        title,
+//                                        R.mipmap.ic_launcher,
+//                                        "你的目光所及，就是你的人生境界。");
+//                                ShareInvoker.getInstance().shareMedia(MainActivity.this, platform, mUMWeb);
+                                /*分享图片*/
+//                                String url = "http://i1.sinaimg.cn/ent/d/2008-06-04/U105P28T3D2048907F326DT20080604225106.jpg";
+//                                UMImage mUMImage = ShareImage.getInstance().getUMImage(MainActivity.this, url);
+//                                ShareInvoker.getInstance().shareMedia(MainActivity.this, platform, mUMImage);
+                                /*分享文本*/
+                                ShareInvoker.getInstance().shareText(MainActivity.this, platform, "测试数据");
+                            }
+                        })
+                        .show();
                 break;
             case R.id.btn_qq_login:
                 LoginInvoker.gotoLogin(this, SHARE_MEDIA.QQ, new LoginInvoker.LoginAuthListener() {

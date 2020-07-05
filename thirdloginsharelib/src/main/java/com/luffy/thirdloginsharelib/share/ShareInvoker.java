@@ -36,42 +36,58 @@ public class ShareInvoker {
     }
 
     /**
-     * 分享
+     * 分享文本
      *
      * @param context
      * @param platform
-     * @param baseMediaObject
      */
-    public void share(Activity context, SHARE_MEDIA platform, BaseMediaObject baseMediaObject) {
+    public void shareText(Activity context, SHARE_MEDIA platform, String text) {
+        shareText(context, platform, text, null);
+    }
+
+    /**
+     * 分享文本
+     *
+     * @param context
+     * @param platform
+     */
+    public void shareText(Activity context, SHARE_MEDIA platform, String text, IShareCallBack iShareCallBack) {
         ShareAction shareAction = new ShareAction(context);
         // 平台
         shareAction.setPlatform(platform);
         // 回调
-        shareAction.setCallback(ShareCallBack.getUMShareListener(context));
-        // 处理消息类型
-        if (baseMediaObject instanceof UMWeb) {
-            shareAction.withMedia((UMWeb) baseMediaObject);
-        } else if (baseMediaObject instanceof UMImage) {
-            shareAction.withMedia((UMImage) baseMediaObject);
-        }
+        shareAction.setCallback(ShareCallBack.getUMShareListener(context, iShareCallBack));
+        //设置消息
+        shareAction.withText(text);
         // 分享
         shareAction.share();
     }
 
     /**
-     * 分享
+     * 分享媒体
      *
      * @param context
      * @param platform
      * @param baseMediaObject
-     * @param mIShareCallBack
      */
-    public void share(Activity context, SHARE_MEDIA platform, BaseMediaObject baseMediaObject, IShareCallBack mIShareCallBack) {
+    public void shareMedia(Activity context, SHARE_MEDIA platform, BaseMediaObject baseMediaObject) {
+        shareMedia(context, platform, baseMediaObject, null);
+    }
+
+    /**
+     * 分享媒体
+     *
+     * @param context
+     * @param platform
+     * @param baseMediaObject
+     * @param iShareCallBack
+     */
+    public void shareMedia(Activity context, SHARE_MEDIA platform, BaseMediaObject baseMediaObject, IShareCallBack iShareCallBack) {
         ShareAction shareAction = new ShareAction(context);
         // 平台
         shareAction.setPlatform(platform);
         // 回调
-        shareAction.setCallback(ShareCallBack.getUMShareListener(context, mIShareCallBack));
+        shareAction.setCallback(ShareCallBack.getUMShareListener(context, iShareCallBack));
         // 处理消息类型
         if (baseMediaObject instanceof UMWeb) {
             shareAction.withMedia((UMWeb) baseMediaObject);
